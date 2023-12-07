@@ -8,6 +8,7 @@ jobs:
       tag: '2023.11.1'
     steps:
       - checkout
+      - run: avdmanager list avd
       - android/start-emulator-and-run-tests:
           system-image: system-images;android-33;google_apis;x86_64
 workflows:
