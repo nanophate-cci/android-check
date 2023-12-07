@@ -9,6 +9,8 @@ jobs:
     steps:
       - checkout
       - run: sdkmanager --list
+      - run: sdkmanager --update emulator
+      - run: sdkmanager --list
       - android/start-emulator-and-run-tests:
           system-image: system-images;android-33;google_apis;x86_64
 workflows:
