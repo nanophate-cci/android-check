@@ -1,19 +1,28 @@
 version: '2.1'
 orbs:
   android: circleci/android@2.3.0
+parameters:
+  system_image:
+    type: string
+    default: "system-images;android-33;google_apis;x86_64"
 jobs:
   test:
     executor:
       name: android/android-machine
       tag: '2023.11.1'
+    parameters:
+      system_image:
+        type: string
     steps:
       - checkout
       - run: sdkmanager --list
-      - run: sdkmanager --uninstall emulator && sdkmanager --install emulator
-      - run: sdkmanager --list
       - android/start-emulator-and-run-tests:
-          system-image: system-images;android-33;google_apis;x86_64
+          system-image: << parameters.system_image >>
 workflows:
+  version: 2
   test:
     jobs:
-      - test
+      - test:
+          matrix:
+            parameters:
+              system_image: ["system-images;android-33;google_apis;x86_64", "system-images;android-30;google_apis;x86_64"]
