@@ -5,7 +5,7 @@ jobs:
   test:
     executor:
       name: android/android-machine
-      tag: '2023.12.1'
+      tag: '2023.11.1'
     steps:
       - checkout
       - android/start-emulator-and-run-tests:
