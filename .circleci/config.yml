@@ -9,7 +9,7 @@ jobs:
   test:
     executor:
       name: android/android-machine
-      tag: '2023.10.1'
+      tag: '2023.06.1'
     parameters:
       system_image:
         type: string
