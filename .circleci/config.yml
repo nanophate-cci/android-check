@@ -5,14 +5,11 @@ parameters:
   system_image:
     type: string
     default: "system-images;android-33;google_apis;x86_64"
-  machine_image:
-    type: string
-    default: "2023.10.1"
 jobs:
   test:
     executor:
       name: android/android-machine
-      tag: << parameters.machine_image >>
+      tag: "2023.10.1"
     parameters:
       system_image:
         type: string
@@ -30,4 +27,3 @@ workflows:
           matrix:
             parameters:
               system_image: ["system-images;android-33;google_apis;x86_64", "system-images;android-30;google_apis;x86_64"]
-              machine_image: ["2023.10.1", "2023.09.1", "2023.08.1", "2023.07.1", "2023.06.1", "2023.05.1", "2023.04.1", "2023.03.1"]
