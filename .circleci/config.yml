@@ -178,10 +178,10 @@ jobs:
         command: |-
           #!/bin/bash
           echo $PARAM_OVERRIDE_ARGS
-          echo "==========""
+          echo "=========="
           echo ${PARAM_NO_AUDIO}
           echo "${PARAM_NO_AUDIO}"
-          echo "==========""
+          echo "=========="
           if [ -n "${PARAM_OVERRIDE_ARGS}" ]; then
                     echo "override-args parameter was supplied; orb defaults will be overridden"
                     emulator -avd ${PARAM_AVD_NAME} ${PARAM_OVERRIDE_ARGS}
